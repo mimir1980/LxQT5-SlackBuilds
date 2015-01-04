@@ -1,0 +1,60 @@
+LxQt Built against Qt5
+
+I obtained the tarballs from Github. You'll need to get them yourself.
+Just get the newest version, they will almost all be version 0.8.0 as of Jan 03 2015
+
+Will likely Set the scripts up to download the source in the near future.
+
+These programs don't specify -qt5, I add it as a reminder
+that they are compiled against Qt5 and not Qt4, which I don't
+even have installed on this machine.
+
+Install with installpkg (not sure if this naming scheme will work 
+with upgradepkg --install-new )
+
+Slackware-current! libxcb is too old in 14.1 (Or maybe it just hates me)
+[lxqt-panel] ^^^^^^^^^^^^^^^^^
+
+Build Order::
+
+DEPS:
+
+001: openbox               --compiled from sbo for now
+002: libconfig             --compiled from sbo for now
+003: compton               --compiled from sbo for now
+004: Qt5                   --compiled from sbo for now
+005: system-tools-backends --compiled from msb for now
+006: liboobs               --compiled from msb for now
+007: libstatgrab           --compiled from sbo for now
+008: CppMicroServices          
+
+MAIN:
+
+01: libfm-extras          --compiled from sbo for now
+02: menu-cache            --compiled from sbo for now
+03: libfm                 --compiled from sbo for now
+04: lxmenu-data           --compiled from sbo for now
+05: libqtxdg-qt5               
+06: liblxqt-qt5                
+07: liblxqt-mount              
+08: libsysstat                 
+09: lxqt-qt5-session           
+10: lxqt-qt5-qtplugin          
+11: lxqt-qt5-globalkeys        
+12: lxqt-qt5-notificationd     
+13: lxqt-qt5-about             
+14: lxqt-qt5-common            
+15: lxqt-qt5-config            
+16: lxqt-qt5-admin             
+17: lxqt-qt5-openssh-askpass   
+18: lxqt-qt5-panel             
+19: lxqt-qt5-powermanagement   
+20: lxqt-qt5-runner            
+21: pcmanfm-qt5                
+
+EXTRA:
+
+22: lximage-qt5                
+23: Otter            --Not from LxQt  - Nice Qt5 Web Browser                
+24: qtermwidget      --Not from LxQt  - Needed for qterminal compiled against Qt5
+25: qterminal        --Not from LxQt  - Nice Terminal compiled in Qt5
