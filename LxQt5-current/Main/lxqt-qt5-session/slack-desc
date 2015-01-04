@@ -8,7 +8,7 @@
                 |-----handy-ruler------------------------------------------------------|
 lxqt-qt5-session: lxqt-qt5-session (lxqt session)
 lxqt-qt5-session:
-lxqt-qt5-session: You already know why this is blank
+lxqt-qt5-session: An alternative session manager ported from the original razor-session
 lxqt-qt5-session:
 lxqt-qt5-session:
 lxqt-qt5-session:
