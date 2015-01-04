@@ -9,9 +9,6 @@ These programs don't specify -qt5, I add it as a reminder
 that they are compiled against Qt5 and not Qt4, which I don't
 even have installed on this machine.
 
-Install with installpkg (not sure if this naming scheme will work 
-with upgradepkg --install-new )
-
 Slackware-current! libxcb is too old in 14.1 (Or maybe it just hates me)
 [lxqt-panel] ^^^^^^^^^^^^^^^^^
 
