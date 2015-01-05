@@ -9,6 +9,8 @@ These programs don't specify -qt5, I add it as a reminder
 that they are compiled against Qt5 and not Qt4, which I don't
 even have installed on this machine.
 
+Will Be removing the added qt5 tag as I update the SlackBuilds
+
 Slackware-current! libxcb is too old in 14.1 (Or maybe it just hates me)
 [lxqt-panel] ^^^^^^^^^^^^^^^^^
 
@@ -41,7 +43,7 @@ MAIN:
 11: lxqt-qt5-globalkeys        
 12: lxqt-qt5-notificationd     
 13: lxqt-qt5-about             
-14: lxqt-qt5-common            
+14: lxqt-common         --Will Download the Source now.    
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             
 17: lxqt-qt5-openssh-askpass   
