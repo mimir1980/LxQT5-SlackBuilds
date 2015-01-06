@@ -11,8 +11,9 @@ even have installed on this machine.
 
 Will Be removing the added qt5 tag as I update the SlackBuilds
 
-Slackware-current! libxcb is too old in 14.1 (Or maybe it just hates me)
-[lxqt-panel] ^^^^^^^^^^^^^^^^^
+libxcb is too old in 14.1 (Or maybe it just hates me)
+
+On Slackware 14.1 upgrade the libxcb package before compiling Qt5
 
 Build Order::
 
