@@ -21,7 +21,7 @@ DEPS:
 
 001: imlib2                --Added my own build that downloads the source
 002: openbox               --Added my own build that downloads the source
-003: libconfig             --compiled from sbo for now
+003: libconfig             --Added my own build that downloads the source
 004: compton               --compiled from sbo for now
 005: Qt5                   --compiled from sbo for now
 006: system-tools-backends --compiled from msb for now
