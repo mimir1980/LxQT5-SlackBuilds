@@ -24,17 +24,17 @@ DEPS:
 003: libconfig             --Added my own build that downloads the source
 004: compton               --Added my own build that downloads the source
 005: Qt5                   --compiled from sbo for now
-006: system-tools-backends --compiled from msb for now
+006: system-tools-backends --Added my own build that downloads the source
 007: liboobs               --compiled from msb for now
 008: libstatgrab           --compiled from sbo for now
 009: CppMicroServices          
 
 MAIN:
 
-01: libfm-extras          --compiled from sbo for now
-02: menu-cache            --compiled from sbo for now
-03: libfm                 --compiled from sbo for now
-04: lxmenu-data           --compiled from sbo for now
+01: libfm-extras            --compiled from sbo for now
+02: menu-cache              --compiled from sbo for now
+03: libfm                   --compiled from sbo for now
+04: lxmenu-data             --compiled from sbo for now
 05: libqtxdg-qt5               
 06: liblxqt-qt5                
 07: liblxqt-mount              
@@ -44,7 +44,7 @@ MAIN:
 11: lxqt-qt5-globalkeys        
 12: lxqt-qt5-notificationd     
 13: lxqt-qt5-about             
-14: lxqt-common         --Will Download the Source now.    
+14: lxqt-common             --Will Download the Source now.    
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             
 17: lxqt-qt5-openssh-askpass   

@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+                     |-----handy-ruler------------------------------------------------------|
+system-tools-backends: system-tools-backends (backends provide an common DBus interface)
+system-tools-backends:
+system-tools-backends: The System Tools Backends are a set of cross-platform modules for
+system-tools-backends: Linux, FreeBSD and other Unix systems. The backends provide an
+system-tools-backends: common DBus interface to all platforms to modify or read the system
+system-tools-backends: configuration in a distro independent fashion. Historically, access
+system-tools-backends: to system configuration has varied deeply across Unix flavours,
+system-tools-backends: and concreting a bit more, across Linux distributions, making it
+system-tools-backends: near impossible to write desktop tools that could work flawlessly
+system-tools-backends: in a cross-platform way.
+system-tools-backends: Home: http://system-tools-backends.freedesktop.org/
