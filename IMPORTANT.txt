@@ -23,10 +23,10 @@ DEPS:
 002: openbox                --Added my own build that downloads the source
 003: libconfig              --Added my own build that downloads the source
 004: compton                --Added my own build that downloads the source
-005: Qt5                    --compiled from sbo for now
+005: Qt5                    --SBo
 006: system-tools-backends  --Added my own build that downloads the source
 007: liboobs                --Added my own build that downloads the source
-008: libstatgrab            --compiled from sbo for now
+008: libstatgrab            --Added my own build that downloads the source
 009: CppMicroServices          
 
 MAIN:
