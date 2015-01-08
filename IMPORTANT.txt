@@ -19,14 +19,14 @@ Build Order::
 
 DEPS:
 
-001: imlib2                --Added my own build that downloads the source
-002: openbox               --Added my own build that downloads the source
-003: libconfig             --Added my own build that downloads the source
-004: compton               --Added my own build that downloads the source
-005: Qt5                   --compiled from sbo for now
-006: system-tools-backends --Added my own build that downloads the source
-007: liboobs               --compiled from msb for now
-008: libstatgrab           --compiled from sbo for now
+001: imlib2                 --Added my own build that downloads the source
+002: openbox                --Added my own build that downloads the source
+003: libconfig              --Added my own build that downloads the source
+004: compton                --Added my own build that downloads the source
+005: Qt5                    --compiled from sbo for now
+006: system-tools-backends  --Added my own build that downloads the source
+007: liboobs                --Added my own build that downloads the source
+008: libstatgrab            --compiled from sbo for now
 009: CppMicroServices          
 
 MAIN:
