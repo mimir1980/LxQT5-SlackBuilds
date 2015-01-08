@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+       |-----handy-ruler------------------------------------------------------|
+compton: compton (Compton is a compositor for X)
+compton:
+compton: Compton is a compositor for X, and a fork of xcompmgr-dana.
+compton: I was frustrated by the low amount of standalone lightweight
+compton: compositors. Compton was forked from Dana Jansens' fork of
+compton: xcompmgr and refactored. I fixed whatever bug I found, and added
+compton: features I wanted. Things seem stable, but don't quote me on
+compton: it. I will most likely be actively working on this until I get the
+compton: features I want. This is also a learning experience for me. That is,
+compton: I'm partially doing this out of a desire to learn Xlib.
+compton: Home: https://github.com/chjj/compton
