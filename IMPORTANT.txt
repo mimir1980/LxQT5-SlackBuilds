@@ -31,7 +31,7 @@ DEPS:
 
 MAIN:
 
-01: libfm-extras            --compiled from sbo for now
+01: libfm-extras            --Added my own build that downloads the source
 02: menu-cache              --compiled from sbo for now
 03: libfm                   --compiled from sbo for now
 04: lxmenu-data             --compiled from sbo for now
