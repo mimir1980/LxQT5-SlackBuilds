@@ -34,7 +34,7 @@ MAIN:
 01: libfm-extras            
 02: menu-cache              
 03: libfm                   
-04: lxmenu-data             --Sbo
+04: lxmenu-data             
 05: libqtxdg-qt5               
 06: liblxqt-qt5                
 07: liblxqt-mount              
@@ -44,7 +44,7 @@ MAIN:
 11: lxqt-qt5-globalkeys        
 12: lxqt-qt5-notificationd     
 13: lxqt-qt5-about             
-14: lxqt-common             --Will Download the Source now.    
+14: lxqt-common                 --Will Download the Source now.    
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             
 17: lxqt-qt5-openssh-askpass   
