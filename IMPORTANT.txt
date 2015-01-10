@@ -33,7 +33,7 @@ MAIN:
 
 01: libfm-extras            --Added my own build that downloads the source
 02: menu-cache              --compiled from sbo for now
-03: libfm                   --compiled from sbo for now
+03: libfm                   --Added my own build that downloads the source
 04: lxmenu-data             --compiled from sbo for now
 05: libqtxdg-qt5               
 06: liblxqt-qt5                
