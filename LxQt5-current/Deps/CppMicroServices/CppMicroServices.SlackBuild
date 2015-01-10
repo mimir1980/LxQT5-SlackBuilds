@@ -28,7 +28,7 @@ VERSION=${VERSION:-2.1.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_thorn}	
 
-wget https://github.com/saschazelzer/CppMicroServices/archive/v2.1.0.tar.gz
+wget -c https://github.com/saschazelzer/CppMicroServices/archive/v2.1.0.tar.gz
 
 # Automatically determine the architecture we're building on:
 if [ -z "$ARCH" ]; then

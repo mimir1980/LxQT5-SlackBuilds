@@ -23,7 +23,7 @@ DEPS:
 002: openbox                
 003: libconfig              
 004: compton                
-005: Qt5                    --SBo
+005: Qt5                    
 006: system-tools-backends  
 007: liboobs                
 008: libstatgrab            
@@ -44,7 +44,7 @@ MAIN:
 11: lxqt-qt5-globalkeys        
 12: lxqt-qt5-notificationd     
 13: lxqt-qt5-about             
-14: lxqt-common                 --Will Download the Source now.    
+14: lxqt-common                  --Will Download the Source now.    
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             
 17: lxqt-qt5-openssh-askpass   

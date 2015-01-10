@@ -28,7 +28,7 @@ VERSION=${VERSION:-0.1.4}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_thorn}
 
-wget http://downloads.sf.net/lxde/lxmenu-data-0.1.4.tar.xz
+wget -c http://downloads.sf.net/lxde/lxmenu-data-0.1.4.tar.xz
 
 NUMJOBS=${NUMJOBS:" -j1 "}
 

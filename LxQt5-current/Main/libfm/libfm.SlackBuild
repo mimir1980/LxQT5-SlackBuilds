@@ -36,7 +36,7 @@ VERSION=${VERSION:-1.2.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_thorn}
 
-wget http://downloads.sf.net/pcmanfm/libfm-1.2.3.tar.xz
+wget -c http://downloads.sf.net/pcmanfm/libfm-1.2.3.tar.xz
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
