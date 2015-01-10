@@ -19,22 +19,22 @@ Build Order::
 
 DEPS:
 
-001: imlib2                 --Added my own build that downloads the source
-002: openbox                --Added my own build that downloads the source
-003: libconfig              --Added my own build that downloads the source
-004: compton                --Added my own build that downloads the source
+001: imlib2                 
+002: openbox                
+003: libconfig              
+004: compton                
 005: Qt5                    --SBo
-006: system-tools-backends  --Added my own build that downloads the source
-007: liboobs                --Added my own build that downloads the source
-008: libstatgrab            --Added my own build that downloads the source
+006: system-tools-backends  
+007: liboobs                
+008: libstatgrab            
 009: CppMicroServices          
 
 MAIN:
 
-01: libfm-extras            --Added my own build that downloads the source
-02: menu-cache              --compiled from sbo for now
-03: libfm                   --Added my own build that downloads the source
-04: lxmenu-data             --compiled from sbo for now
+01: libfm-extras            
+02: menu-cache              
+03: libfm                   
+04: lxmenu-data             --Sbo
 05: libqtxdg-qt5               
 06: liblxqt-qt5                
 07: liblxqt-mount              
