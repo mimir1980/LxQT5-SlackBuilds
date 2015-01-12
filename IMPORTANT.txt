@@ -20,29 +20,29 @@ DEPS:
 007: liboobs                
 008: libstatgrab            
 009: CppMicroServices          
+010: libfm-extras            
+011: menu-cache              
+012: libfm                   
+013: lxmenu-data 
 
 MAIN:
-
-01: libfm-extras            
-02: menu-cache              
-03: libfm                   
-04: lxmenu-data             
-05: libqtxdg                             
-06: liblxqt                               
-07: liblxqt-mount                    
-08: libsysstat                   
-09: lxqt-session                 
-10: lxqt-qtplugin                
-11: lxqt-globalkeys              
-12: lxqt-notificationd           
-13: lxqt-about                   
-14: lxqt-common                  
-15: lxqt-config                  
-16: lxqt-admin                           
-17: lxqt-openssh-askpass         
-18: lxqt-panel                   
-19: lxqt-powermanagement         
-20: lxqt-runner                  
-21: pcmanfm-qt                
-22: lximage-qt                            
+            
+01: libqtxdg                             
+02: liblxqt                               
+03: liblxqt-mount                    
+04: libsysstat                   
+05: lxqt-session                 
+06: lxqt-qtplugin                
+07: lxqt-globalkeys              
+08: lxqt-notificationd           
+09: lxqt-about                   
+10: lxqt-common                  
+11: lxqt-config                  
+12: lxqt-admin                           
+13: lxqt-openssh-askpass         
+14: lxqt-panel                   
+15: lxqt-powermanagement         
+16: lxqt-runner                  
+17: pcmanfm-qt                
+18: lximage-qt                            
 
