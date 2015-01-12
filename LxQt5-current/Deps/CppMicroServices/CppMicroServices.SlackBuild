@@ -44,11 +44,9 @@
 PRGNAM=CppMicroServices
 VERSION=${VERSION:-2.1.0}
 BUILD=${BUILD:-1}
-# 'make' can run jobs in parallel for added speed. The number should be higher
-# than the number of cores/virtual CPU's in your system:
-NUMJOBS=${NUMJOBS:" -j4 "}
-# The TAG is a unique identifier for all your Slackware packages.
-# Use your initials as the value for TAG for instance.
+
+NUMJOBS=${NUMJOBS:" -j1 "}
+
 TAG=${TAG:-_thorn}
 
 # This covers most filenames you'd want as documentation. Change if needed.
