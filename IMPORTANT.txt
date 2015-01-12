@@ -37,7 +37,7 @@ MAIN:
 04: lxmenu-data             
 05: libqtxdg                     --Will DL the source now             
 06: liblxqt                      --Will DL the source now            
-07: liblxqt-mount              
+07: liblxqt-mount                --Will DL the source now        
 08: libsysstat                 
 09: lxqt-qt5-session           
 10: lxqt-qt5-qtplugin          
