@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
                 |-----handy-ruler------------------------------------------------------|
-lxqt-qt5-session: lxqt-qt5-session (lxqt session)
-lxqt-qt5-session:
-lxqt-qt5-session: An alternative session manager ported from the original razor-session
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session:
-lxqt-qt5-session: Packaged by Thorn Inurcide
+lxqt-session: lxqt-session (lxqt session)
+lxqt-session:
+lxqt-session: An alternative session manager ported from the original razor-session
+lxqt-session:
+lxqt-session:
+lxqt-session:
+lxqt-session:
+lxqt-session:
+lxqt-session:
+lxqt-session:
+lxqt-session: Packaged by Thorn Inurcide
