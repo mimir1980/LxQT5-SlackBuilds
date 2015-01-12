@@ -49,7 +49,7 @@ MAIN:
 16: lxqt-admin                   --Will DL the source now            
 17: lxqt-openssh-askpass         --Will DL the source now
 18: lxqt-panel                   --Will DL the source now
-19: lxqt-qt5-powermanagement     
+19: lxqt-powermanagement         --Will DL the source now
 20: lxqt-qt5-runner            
 21: pcmanfm-qt5                
 
