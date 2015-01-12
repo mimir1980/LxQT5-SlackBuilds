@@ -1,19 +1,12 @@
-LxQt Built against Qt5
-
-I obtained the tarballs from Github. You'll need to get them yourself.
-Just get the newest version, they will almost all be version 0.8.0 as of Jan 03 2015
-
-Will likely Set the scripts up to download the source in the near future.
-
-These programs don't specify -qt5, I add it as a reminder
-that they are compiled against Qt5 and not Qt4, which I don't
-even have installed on this machine.
-
-Will Be removing the added qt5 tag as I update the SlackBuilds
+LxQt Built against Qt5 for Slackware Linux Current
 
 libxcb is too old in 14.1 (Or maybe it just hates me)
 
 On Slackware 14.1 upgrade the libxcb package before compiling Qt5
+
+If you use a session manager to log in, if you change a system theme or your settings and you log out and then
+back in, openbox may not start and you won't have a window manager and have to reboot. I log in through the linux console
+using a xinitrc and don't have this problem.
 
 Build Order::
 
@@ -35,26 +28,22 @@ MAIN:
 02: menu-cache              
 03: libfm                   
 04: lxmenu-data             
-05: libqtxdg                     --Will DL the source now             
-06: liblxqt                      --Will DL the source now            
-07: liblxqt-mount                --Will DL the source now        
-08: libsysstat                   --Will DL the source now
-09: lxqt-session                 --Will DL the source now
-10: lxqt-qtplugin                --Will DL the source now 
-11: lxqt-globalkeys              --Will DL the source now
-12: lxqt-notificationd           --Will DL the source now
-13: lxqt-about                   --Will DL the source now 
-14: lxqt-common                  --Will DL the source now     
-15: lxqt-config                  --Will DL the source now 
-16: lxqt-admin                   --Will DL the source now            
-17: lxqt-openssh-askpass         --Will DL the source now
-18: lxqt-panel                   --Will DL the source now
-19: lxqt-powermanagement         --Will DL the source now
-20: lxqt-qt5-runner            
-21: pcmanfm-qt5                
+05: libqtxdg                             
+06: liblxqt                               
+07: liblxqt-mount                    
+08: libsysstat                   
+09: lxqt-session                 
+10: lxqt-qtplugin                
+11: lxqt-globalkeys              
+12: lxqt-notificationd           
+13: lxqt-about                   
+14: lxqt-common                  
+15: lxqt-config                  
+16: lxqt-admin                           
+17: lxqt-openssh-askpass         
+18: lxqt-panel                   
+19: lxqt-powermanagement         
+20: lxqt-runner                  
+21: pcmanfm-qt                
+22: lximage-qt                            
 
-EXTRA:
-
-22: lximage-qt5                            
-24: qtermwidget      --Not from LxQt  - Needed for qterminal compiled against Qt5
-25: qterminal        --Not from LxQt  - Nice Terminal compiled in Qt5

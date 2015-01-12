@@ -1,4 +1,0 @@
-If you use a session manager to log in, if you change a system theme or your settings and you log out and then
-back in, openbox may not start and you won't have a window manager and have to reboot. I log in through the linux console
-using a xinitrc and don't have this problem.
-
