@@ -40,10 +40,10 @@ MAIN:
 07: liblxqt-mount                --Will DL the source now        
 08: libsysstat                   --Will DL the source now
 09: lxqt-session                 --Will DL the source now
-10: lxqt-qt5-qtplugin          
-11: lxqt-qt5-globalkeys        
-12: lxqt-qt5-notificationd     
-13: lxqt-qt5-about             
+10: lxqt-qtplugin                --Will DL the source now 
+11: lxqt-globalkeys              --Will DL the source now
+12: lxqt-notificationd           --Will DL the source now
+13: lxqt-about                   --Will DL the source now 
 14: lxqt-common                  --Will DL the source now     
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             

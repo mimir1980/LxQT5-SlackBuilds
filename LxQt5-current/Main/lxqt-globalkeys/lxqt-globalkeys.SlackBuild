@@ -26,8 +26,8 @@
 # Slackware SlackBuild script
 # ===========================
 # By:          Thorn Inurcide
-# For:         lxqt-session
-# Descr:       LxQt session manager
+# For:         lxqt-globalkeys
+# Descr:       Daemon to register global keyboard shortcuts
 # URL:         lxqt.org
 # Build needs:
 # Needs:
@@ -35,13 +35,13 @@
 # 0.8.0-1:     12/Jan/2015 by Thorn Inurcide
 #              * Initial build.
 #
-# Run 'sh lxqt-session.SlackBuild' to build a Slackware package.
+# Run 'sh lxqt-globalkeys.SlackBuild' to build a Slackware package.
 # The package (.t?z) and .txt file as well as build logs are created in /tmp .
 # Install the package using 'installpkg' or 'upgradepkg --install-new'.
 #
 # -----------------------------------------------------------------------------
 
-PRGNAM=lxqt-session
+PRGNAM=lxqt-globalkeys
 VERSION=${VERSION:-0.8.0}
 BUILD=${BUILD:-1}
 
@@ -60,7 +60,7 @@ TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: https://github.com/lxde/lxqt-session/archive/0.8.0.tar.gz
+# Input URL: https://github.com/lxde/lxqt-globalkeys/archive/0.8.0.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 
@@ -192,7 +192,6 @@ cd build-${PRGNAM}
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUNDLE_XDG_UTILS=No \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DUSE_QT5=ON \
     ..
@@ -200,23 +199,12 @@ cd build-${PRGNAM}
   make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 cd -
 
-# Add this to the doinst.sh:
-mkdir -p $PKG/install
-cat <<EOINS >> $PKG/install/doinst.sh
-# Update the desktop database:
-if [ -x usr/bin/update-desktop-database ]; then
-  chroot . /usr/bin/update-desktop-database usr/share/applications > /dev/null 2>&1
-fi
-
-EOINS
-
 # Add documentation:
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
 cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
-
 
 # Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \

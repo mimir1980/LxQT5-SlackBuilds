@@ -26,8 +26,8 @@
 # Slackware SlackBuild script
 # ===========================
 # By:          Thorn Inurcide
-# For:         lxqt-session
-# Descr:       LxQt session manager
+# For:         lxqt-about
+# Descr:       The standalone LXQt @DESCR@quot;About@DESCR@quot; dialog
 # URL:         lxqt.org
 # Build needs:
 # Needs:
@@ -35,13 +35,13 @@
 # 0.8.0-1:     12/Jan/2015 by Thorn Inurcide
 #              * Initial build.
 #
-# Run 'sh lxqt-session.SlackBuild' to build a Slackware package.
+# Run 'sh lxqt-about.SlackBuild' to build a Slackware package.
 # The package (.t?z) and .txt file as well as build logs are created in /tmp .
 # Install the package using 'installpkg' or 'upgradepkg --install-new'.
 #
 # -----------------------------------------------------------------------------
 
-PRGNAM=lxqt-session
+PRGNAM=lxqt-about
 VERSION=${VERSION:-0.8.0}
 BUILD=${BUILD:-1}
 
@@ -60,7 +60,7 @@ TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: https://github.com/lxde/lxqt-session/archive/0.8.0.tar.gz
+# Input URL: https://github.com/lxde/lxqt-about/archive/0.8.0.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 
@@ -124,13 +124,13 @@ _UMASK_=$(umask)
 umask 0022
 
 # Create working directories:
-mkdir -p $OUTPUT          # place for the package to be saved
-mkdir -p $TMP/tmp-$PRGNAM # location to build the source
-mkdir -p $PKG             # place for the package to be built
-rm -rf $PKG/*             # always erase old package's contents
-rm -rf $TMP/tmp-$PRGNAM/* # remove the remnants of previous build
+mkdir -p $OUTPUT          
+mkdir -p $TMP/tmp-$PRGNAM 
+mkdir -p $PKG             
+rm -rf $PKG/*             
+rm -rf $TMP/tmp-$PRGNAM/* 
 rm -rf $OUTPUT/{checkout,configure,make,install,error,makepkg,patch}-$PRGNAM.log
-                          # remove old log files
+                         
 
 # Source file availability:
 if ! [ -f ${SOURCE} ]; then
@@ -192,8 +192,6 @@ cd build-${PRGNAM}
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DBUNDLE_XDG_UTILS=No \
-    -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     -DUSE_QT5=ON \
     ..
   make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
@@ -217,6 +215,11 @@ cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
+# Compress the man page(s):
+if [ -d $PKG/usr/man ]; then
+  find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
+  for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
+fi
 
 # Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
@@ -247,4 +250,3 @@ fi
 
 # Restore the original umask:
 umask ${_UMASK_}
-

@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
                    |-----handy-ruler------------------------------------------------------|
-lxqt-qt5-globalkeys: lxqt-qt5-globalkeys (Daemon to register global keyboard shortcuts)
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys: Daemon used to register global keyboard shortcuts
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys:
-lxqt-qt5-globalkeys: Packaged by Thorn Inurcide
+lxqt-globalkeys: lxqt-globalkeys (Daemon to register global keyboard shortcuts)
+lxqt-globalkeys:
+lxqt-globalkeys: Daemon used to register global keyboard shortcuts
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys:
+lxqt-globalkeys: Packaged by Thorn Inurcide

@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
                       |-----handy-ruler------------------------------------------------------|
-lxqt-qt5-notificationd: lxqt-qt5-notificationd (The LXQt notification daemon)
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd: The LXQt notification daemon
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd:
-lxqt-qt5-notificationd: Packaged by Thorn Inurcide
+lxqt-notificationd: lxqt-notificationd (The LXQt notification daemon)
+lxqt-notificationd:
+lxqt-notificationd: The LXQt notification daemon
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd:
+lxqt-notificationd: Packaged by Thorn Inurcide
