@@ -50,8 +50,7 @@ NUMJOBS=${NUMJOBS:" -j1 "}
 TAG=${TAG:-_thorn}
 
 # This covers most filenames you'd want as documentation. Change if needed.
-DOCS="ABOUT* AUTHORS BUGS ChangeLog* COPYING CREDITS FAQ GPL* HACKING \
-      LICENSE MAINTAINERS NEWS README* TODO"
+DOCS="AUTHORS COPYING"
 
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
