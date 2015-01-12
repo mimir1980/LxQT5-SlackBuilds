@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
                         |-----handy-ruler------------------------------------------------------|
-lxqt-qt5-openssh-askpass: lxqt-qt5-openssh-askpass (OpenSSH user/password GUI dialog for LXQt)
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass: OpenSSH user/password GUI dialog for LXQt
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass:
-lxqt-qt5-openssh-askpass: Packaged by Thorn Inurcide
+lxqt-openssh-askpass: lxqt-openssh-askpass (OpenSSH user/password GUI dialog for LXQt)
+lxqt-openssh-askpass:
+lxqt-openssh-askpass: OpenSSH user/password GUI dialog for LXQt
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass:
+lxqt-openssh-askpass: Packaged by Thorn Inurcide

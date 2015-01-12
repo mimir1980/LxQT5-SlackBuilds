@@ -45,11 +45,11 @@ MAIN:
 12: lxqt-notificationd           --Will DL the source now
 13: lxqt-about                   --Will DL the source now 
 14: lxqt-common                  --Will DL the source now     
-15: lxqt-qt5-config            
-16: lxqt-qt5-admin             
-17: lxqt-qt5-openssh-askpass   
-18: lxqt-qt5-panel             
-19: lxqt-qt5-powermanagement   
+15: lxqt-config                  --Will DL the source now 
+16: lxqt-admin                   --Will DL the source now            
+17: lxqt-openssh-askpass         --Will DL the source now
+18: lxqt-panel                   --Will DL the source now
+19: lxqt-qt5-powermanagement     
 20: lxqt-qt5-runner            
 21: pcmanfm-qt5                
 

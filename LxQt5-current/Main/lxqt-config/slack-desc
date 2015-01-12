@@ -5,15 +5,15 @@
 # make exactly 11 lines for the formatting to be correct.  It's also
 # customary to leave one space after the ':'.
 
-              |-----handy-ruler------------------------------------------------------|
-lxqt-qt5-admin: lxqt-qt5-admin (LXQt system administration tool)
-lxqt-qt5-admin:
-lxqt-qt5-admin: LXQt system administration tool
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin:
-lxqt-qt5-admin: Packaged by Thorn Inurcide
+               |-----handy-ruler------------------------------------------------------|
+lxqt-config: lxqt-config (LxQt system settings center)
+lxqt-config:
+lxqt-config: LXQt system settings center
+lxqt-config:
+lxqt-config:
+lxqt-config:
+lxqt-config:
+lxqt-config:
+lxqt-config:
+lxqt-config:
+lxqt-config: Packaged by Thorn Inurcide
