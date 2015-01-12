@@ -36,7 +36,7 @@ MAIN:
 03: libfm                   
 04: lxmenu-data             
 05: libqtxdg-qt5               
-06: liblxqt-qt5                
+06: liblxqt                      --Will DL the source now            
 07: liblxqt-mount              
 08: libsysstat                 
 09: lxqt-qt5-session           

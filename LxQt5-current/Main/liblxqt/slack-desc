@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
            |-----handy-ruler------------------------------------------------------|
-liblxqt-qt5: liblxqt-qt5 (Core utility library)
-liblxqt-qt5:
-liblxqt-qt5: Core utility library for all LXDE-Qt components
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5:
-liblxqt-qt5: Packaged by Thorn Inurcide
+liblxqt: liblxqt (Core utility library)
+liblxqt:
+liblxqt: Core utility library for all LXDE-Qt components
+liblxqt:
+liblxqt:
+liblxqt:
+liblxqt:
+liblxqt:
+liblxqt:
+liblxqt:
+liblxqt: Packaged by Thorn Inurcide
