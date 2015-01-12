@@ -6,14 +6,14 @@
 # customary to leave one space after the ':'.
 
             |-----handy-ruler------------------------------------------------------|
-libqtxdg-qt5: libqtxdg-qt5 (implementation of freedesktop.org xdg)
-libqtxdg-qt5:
-libqtxdg-qt5: libqtxdg is An Qt implementation of freedesktop.org xdg
-libqtxdg-qt5: specifications. It can be built with Qt4 and Qt5
-libqtxdg-qt5:
-libqtxdg-qt5:
-libqtxdg-qt5:
-libqtxdg-qt5:
-libqtxdg-qt5:
-libqtxdg-qt5:
-libqtxdg-qt5: Packaged by Thorn Inurcide
+libqtxdg: libqtxdg (implementation of freedesktop.org xdg)
+libqtxdg:
+libqtxdg: libqtxdg is An Qt implementation of freedesktop.org xdg
+libqtxdg: specifications. It can be built with Qt4 and Qt5
+libqtxdg:
+libqtxdg:
+libqtxdg:
+libqtxdg:
+libqtxdg:
+libqtxdg:
+libqtxdg: Packaged by Thorn Inurcide

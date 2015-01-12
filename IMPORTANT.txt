@@ -35,7 +35,7 @@ MAIN:
 02: menu-cache              
 03: libfm                   
 04: lxmenu-data             
-05: libqtxdg-qt5               
+05: libqtxdg                     --Will DL the source now             
 06: liblxqt                      --Will DL the source now            
 07: liblxqt-mount              
 08: libsysstat                 
@@ -44,7 +44,7 @@ MAIN:
 11: lxqt-qt5-globalkeys        
 12: lxqt-qt5-notificationd     
 13: lxqt-qt5-about             
-14: lxqt-common                  --Will Download the Source now.    
+14: lxqt-common                  --Will DL the source now     
 15: lxqt-qt5-config            
 16: lxqt-qt5-admin             
 17: lxqt-qt5-openssh-askpass   
@@ -55,7 +55,6 @@ MAIN:
 
 EXTRA:
 
-22: lximage-qt5                
-23: Otter            --Not from LxQt  - Nice Qt5 Web Browser                
+22: lximage-qt5                            
 24: qtermwidget      --Not from LxQt  - Needed for qterminal compiled against Qt5
 25: qterminal        --Not from LxQt  - Nice Terminal compiled in Qt5
