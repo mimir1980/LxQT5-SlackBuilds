@@ -4,8 +4,8 @@ libxcb is too old in 14.1
 
 Removed qt5, you'll need to get it yourself, there is a build at SBo.
 I highly reccomend compiling it from source and not using someone elses
-premade package for Slackage. Qt5 seems to be very picky about the
-dependancies it's compiled against. make sure current is up to date 
+premade package for Slackware. Qt5 seems to be very picky about the
+dependancies it's compiled against. Make sure current is up to date 
 with patches/upgrades before compiling Qt5.
 
 If compiled against Qt 5.4.x you will have to log out and back in
