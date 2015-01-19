@@ -43,7 +43,6 @@ for dir in \
   Deps/openbox \
   Deps/libconfig \
   Deps/compton \
-  Deps/qt5 \
   Deps/system-tools-backends \
   Deps/liboobs \
   Deps/libstatgrab \

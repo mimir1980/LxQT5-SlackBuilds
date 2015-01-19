@@ -1,6 +1,0 @@
-Qt is a cross-platform C++ application framework. Qt's primary feature
-is its rich set of widgets that provide standard GUI functionality.
-
-Note: To build Qt5 with Pulseadio then pass USEPULSE=yes to the slackbuild.
-
-  USEPULSE=yes ./qt5.SlackBuild
