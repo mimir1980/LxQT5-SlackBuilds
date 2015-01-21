@@ -50,6 +50,7 @@ for dir in \
   Deps/menu-cache \
   Deps/libfm \
   Deps/lxmenu-data \
+  Deps/CppMicroServices \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)
