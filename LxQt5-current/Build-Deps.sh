@@ -39,6 +39,7 @@ ROOT=$(pwd)
 
 # Loop for all dependency packages
 for dir in \
+  Deps/qt5 \
   Deps/imlib2 \
   Deps/openbox \
   Deps/libconfig \

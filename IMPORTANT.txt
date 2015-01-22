@@ -1,27 +1,14 @@
 LxQt Built against Qt5 for Slackware Linux Current
 
-libxcb is too old in 14.1 
-
-Removed qt5, you'll need to get it yourself, there is a build at SBo.
-I highly reccomend compiling it from source and not using someone elses
-premade package for Slackware. Qt5 seems to be very picky about the
-dependancies it's compiled against. Make sure current is up to date 
-with patches/upgrades before compiling Qt5.
-
-If compiled against Qt 5.4.x you will have to log out and back in
-upon changing the theme in LxQt. This is being worked on in the master
-branch but these are for version 0.8.0. Qt 5.3.x doesn't have this
-issue from what I hear. I am using Qt 5.4.0
-
 Build Order::
 
 DEPS:
 
-001: imlib2                 
-002: openbox                
-003: libconfig              
-004: compton                
-005: Qt5                    
+001: Qt5
+002: imlib2                 
+003: openbox                
+004: libconfig              
+005: compton                                    
 006: system-tools-backends  
 007: liboobs                
 008: libstatgrab            
