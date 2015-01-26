@@ -34,12 +34,6 @@
 # Changelog:
 # 0.8.0-1:     12/Jan/2015 by Thorn Inurcide
 #              * Initial build.
-#
-# Run 'sh lxqt-about.SlackBuild' to build a Slackware package.
-# The package (.t?z) and .txt file as well as build logs are created in /tmp .
-# Install the package using 'installpkg' or 'upgradepkg --install-new'.
-#
-# -----------------------------------------------------------------------------
 
 PRGNAM=lxqt-about
 VERSION=${VERSION:-0.8.0}
@@ -49,7 +43,6 @@ NUMJOBS=${NUMJOBS:" -j1 "}
 
 TAG=${TAG:-_thorn}
 
-# This covers most filenames you'd want as documentation. Change if needed.
 DOCS="AUTHORS COPYING"
 
 # Where do we look for sources?
@@ -63,11 +56,6 @@ OUTPUT=${OUTPUT:-/tmp}
 # Input URL: https://github.com/lxde/lxqt-about/archive/0.8.0.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
-
-
-##
-## --- with a little luck, you won't have to edit below this point --- ##
-##
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
@@ -215,12 +203,6 @@ cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
-# Compress the man page(s):
-if [ -d $PKG/usr/man ]; then
-  find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
-  for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-fi
-
 # Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -228,14 +210,6 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 # Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
-if [ -f $SRCDIR/doinst.sh ]; then
-  cat $SRCDIR/doinst.sh >> $PKG/install/doinst.sh
-elif [ -f $SRCDIR/doinst.sh.gz ]; then
-  zcat $SRCDIR/doinst.sh.gz >> $PKG/install/doinst.sh
-fi
-if [ -f $SRCDIR/slack-required ]; then
-  cat $SRCDIR/slack-required > $PKG/install/slack-required
-fi
 
 # Build the package:
 cd $PKG
@@ -244,9 +218,6 @@ cd $OUTPUT
 md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz}.md5
 cd -
 cat $PKG/install/slack-desc | grep "^${PRGNAM}" > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.txt
-if [ -f $PKG/install/slack-required ]; then
-  cat $PKG/install/slack-required > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.dep
-fi
 
 # Restore the original umask:
 umask ${_UMASK_}
