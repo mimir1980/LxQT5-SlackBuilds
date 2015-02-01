@@ -22,18 +22,6 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
-#
-# Slackware SlackBuild script
-# ===========================
-# By:          Thorn Inurcide
-# For:         lxqt-openssh-askpass
-# Descr:       OpenSSH user/password GUI dialog for LxQt
-# URL:         lxqt.org
-# Build needs:
-# Needs:
-# Changelog:
-# 0.8.0-1:     12/Jan/2015 by Thorn Inurcide
-#              * Initial build.
 
 PRGNAM=lxqt-openssh-askpass
 VERSION=${VERSION:-0.8.0}

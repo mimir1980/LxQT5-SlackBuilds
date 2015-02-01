@@ -22,18 +22,6 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
-#
-# Slackware SlackBuild script
-# ===========================
-# By:          Thorn Inurcide
-# For:         lxqt-config
-# Descr:       LXQt system settings center
-# URL:         lxqt.org
-# Build needs:
-# Needs:
-# Changelog:
-# 0.8.0-1:     12/Jan/2015 by Thorn Inurcide
-#              * Initial build.
 
 PRGNAM=lxqt-config
 VERSION=${VERSION:-0.8.0}
