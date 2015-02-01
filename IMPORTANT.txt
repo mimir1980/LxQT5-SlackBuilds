@@ -5,18 +5,21 @@ Build Order::
 DEPS:
 
 001: Qt5
-002: imlib2                 
-003: openbox                
-004: libconfig              
-005: compton                                    
-006: system-tools-backends  
-007: liboobs                
-008: libstatgrab            
-009: CppMicroServices          
-010: libfm-extras            
-011: menu-cache              
-012: libfm                   
-013: lxmenu-data 
+002: extra-cmake-modules
+003: kwindowsystem
+004: CppMicroServices 
+005: imlib2                 
+006: openbox                
+007: libconfig              
+008: compton                                    
+009: system-tools-backends  
+010: liboobs                
+011: libstatgrab               
+012: vala      
+013: libfm-extras            
+014: menu-cache              
+015: libfm                   
+016: lxmenu-data 
 
 MAIN:
             

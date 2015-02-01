@@ -40,6 +40,9 @@ ROOT=$(pwd)
 # Loop for all dependency packages
 for dir in \
   Deps/qt5 \
+  Deps/extra-cmake-modules \
+  Deps/kwindowsystem \
+  Deps/CppMicroServices \
   Deps/imlib2 \
   Deps/openbox \
   Deps/libconfig \
@@ -51,7 +54,6 @@ for dir in \
   Deps/menu-cache \
   Deps/libfm \
   Deps/lxmenu-data \
-  Deps/CppMicroServices \
   ; do
   # Get the package name
   package=$(echo $dir | cut -f2- -d /)

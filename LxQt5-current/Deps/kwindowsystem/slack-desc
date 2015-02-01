@@ -1,0 +1,21 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.  Line
+# up the first '|' above the ':' following the base package name, and the '|'
+# on the right side marks the last column you can put a character in.  You must
+# make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':'.
+
+             |-----handy-ruler------------------------------------------------------|
+kwindowsystem: kwindowsystem (Access to the windowing system)
+kwindowsystem:
+kwindowsystem: Convenience access to certain properties and features of the
+kwindowsystem: windowing system.  KWindowSystem provides information about
+kwindowsystem: the windowing system and allows interaction with the windowing
+kwindowsystem: system. It provides an high level API which is windowing system
+kwindowsystem: independent and has platform specific implementations. This API
+kwindowsystem: is inspired by X11 and thus not all functionality is available
+kwindowsystem: on all windowing systems.  In addition to the high level API,
+kwindowsystem: this framework also provides several more low level classes for
+kwindowsystem: interaction with the X Windowing System.
+kwindowsystem:
+kwindowsystem: Home: http://download.kde.org/stable/frameworks/5.4/
