@@ -22,24 +22,6 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
-#
-# Slackware SlackBuild script
-# ===========================
-# By:          Thorn Inurcide
-# For:         openbox
-# Descr:       Openbox Window Manager
-# URL:         http://openbox.org/wiki/Main_Page
-# Build needs:
-# Needs:
-# Changelog:
-# 3.5.2-1:     04/Jan/2015 by Thorn Inurcide
-#              * Initial build.
-#
-# Run 'sh openbox.SlackBuild' to build a Slackware package.
-# The package (.t?z) and .txt file as well as build logs are created in /tmp .
-# Install the package using 'installpkg' or 'upgradepkg --install-new'.
-#
-# -----------------------------------------------------------------------------
 
 PRGNAM=openbox
 VERSION=${VERSION:-3.5.2}
@@ -203,11 +185,6 @@ if [ -x usr/bin/update-desktop-database ]; then
   chroot . /usr/bin/update-desktop-database usr/share/applications > /dev/null 2>&1
 fi
 
-# Update the mime database:
-if [ -x usr/bin/update-mime-database ]; then
-  chroot . /usr/bin/update-mime-database usr/share/mime >/dev/null 2>&1
-fi
-
 EOINS
 
 # Add documentation:
@@ -230,14 +207,6 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 # Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
-if [ -f $SRCDIR/doinst.sh ]; then
-  cat $SRCDIR/doinst.sh >> $PKG/install/doinst.sh
-elif [ -f $SRCDIR/doinst.sh.gz ]; then
-  zcat $SRCDIR/doinst.sh.gz >> $PKG/install/doinst.sh
-fi
-if [ -f $SRCDIR/slack-required ]; then
-  cat $SRCDIR/slack-required > $PKG/install/slack-required
-fi
 
 # Add xinitrc
 mkdir -p $PKG/etc/X11/xinit/
@@ -245,14 +214,11 @@ cat $SRCDIR/xinitrc.openbox > $PKG/etc/X11/xinit/xinitrc.openbox
 
 # Build the package:
 cd $PKG
-makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
+makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT
-md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz}.md5
+md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz}.md5
 cd -
 cat $PKG/install/slack-desc | grep "^${PRGNAM}" > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.txt
-if [ -f $PKG/install/slack-required ]; then
-  cat $PKG/install/slack-required > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.dep
-fi
 
 # Restore the original umask:
 umask ${_UMASK_}

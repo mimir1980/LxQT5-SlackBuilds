@@ -23,15 +23,15 @@
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
 
-PRGNAM=system-tools-backends
-VERSION=${VERSION:-2.10.2}
+PRGNAM=vala
+VERSION=${VERSION:-0.26.0}
 BUILD=${BUILD:-1}
 
 NUMJOBS=${NUMJOBS:" -j1 "}
 
 TAG=${TAG:-_thorn}
 
-DOCS="AUTHORS ChangeLog* COPYING NEWS README* "
+DOCS="AUTHORS ChangeLog* COPYING MAINTAINERS NEWS README* THANKS"
 
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
@@ -41,9 +41,9 @@ TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: http://system-tools-backends.freedesktop.org/downloads/2.8/system-tools-backends-2.8.3.tar.gz
-SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
-SRCURL="http://ftp.gnome.org/pub/gnome/sources/system-tools-backends/2.10/$PRGNAM-$VERSION.tar.bz2"
+# Input URL: http://ftp.gnome.org/pub/GNOME/sources/vala/0.26/vala-0.26.0.tar.xz
+SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.xz"
+SRCURL="http://ftp.gnome.org/pub/GNOME/sources/${PRGNAM}/0.26/${PRGNAM}-${VERSION}.tar.xz"
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
@@ -100,11 +100,11 @@ _UMASK_=$(umask)
 umask 0022
 
 # Create working directories:
-mkdir -p $OUTPUT         
+mkdir -p $OUTPUT          
 mkdir -p $TMP/tmp-$PRGNAM 
 mkdir -p $PKG             
 rm -rf $PKG/*             
-rm -rf $TMP/tmp-$PRGNAM/* 
+rm -rf $TMP/tmp-$PRGNAM/*
 rm -rf $OUTPUT/{checkout,configure,make,install,error,makepkg,patch}-$PRGNAM.log
 
 # Source file availability:
@@ -154,7 +154,7 @@ elif $(file ${SOURCE} | grep -qi ": zip"); then
 else
   tar -xvf ${SOURCE}
 fi
-cd system-tools-backends-${VERSION}
+cd ${PRGNAM}-${VERSION}
 chown -R root:root .
 chmod -R u+w,go+r-w,a+rX-st .
 
@@ -166,10 +166,8 @@ CFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --localstatedir=/var \
-  --sysconfdir=/etc \
   --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
-  --disable-static \
   --program-prefix= \
   --program-suffix= \
   --build=$TARGET \
@@ -209,3 +207,4 @@ cat $PKG/install/slack-desc | grep "^${PRGNAM}" > $OUTPUT/${PRGNAM}-${VERSION}-$
 
 # Restore the original umask:
 umask ${_UMASK_}
+

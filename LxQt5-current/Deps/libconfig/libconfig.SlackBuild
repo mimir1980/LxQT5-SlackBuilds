@@ -22,24 +22,6 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
-#
-# Slackware SlackBuild script
-# ===========================
-# By:          Thorn Inurcide
-# For:         libconfig
-# Descr:       library for processing structured configuration files
-# URL:         http://www.hyperrealm.com/libconfig/
-# Build needs:
-# Needs:
-# Changelog:
-# 1.4.9-1:     06/Jan/2015 by Thorn Inurcide
-#              * Initial build.
-#
-# Run 'sh libconfig.SlackBuild' to build a Slackware package.
-# The package (.t?z) and .txt file as well as build logs are created in /tmp .
-# Install the package using 'installpkg' or 'upgradepkg --install-new'.
-#
-# -----------------------------------------------------------------------------
 
 PRGNAM=libconfig
 VERSION=${VERSION:-1.4.9}
@@ -49,8 +31,7 @@ NUMJOBS=${NUMJOBS:" -j1 "}
 
 TAG=${TAG:-_thorn}
 
-# This covers most filenames you'd want as documentation. Change if needed.
-DOCS="AUTHORSChangeLog COPYING.LIB README* TODO"
+DOCS="AUTHORS ChangeLog COPYING.LIB README* TODO"
 
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
@@ -63,11 +44,6 @@ OUTPUT=${OUTPUT:-/tmp}
 # Input URL: http://www.hyperrealm.com/libconfig/libconfig-1.4.9.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="http://www.hyperrealm.com/${PRGNAM}/${PRGNAM}-${VERSION}.tar.gz"
-
-
-##
-## --- with a little luck, you won't have to edit below this point --- ##
-##
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
@@ -124,13 +100,12 @@ _UMASK_=$(umask)
 umask 0022
 
 # Create working directories:
-mkdir -p $OUTPUT          # place for the package to be saved
-mkdir -p $TMP/tmp-$PRGNAM # location to build the source
-mkdir -p $PKG             # place for the package to be built
-rm -rf $PKG/*             # always erase old package's contents
-rm -rf $TMP/tmp-$PRGNAM/* # remove the remnants of previous build
+mkdir -p $OUTPUT         
+mkdir -p $TMP/tmp-$PRGNAM 
+mkdir -p $PKG             
+rm -rf $PKG/*             
+rm -rf $TMP/tmp-$PRGNAM/* 
 rm -rf $OUTPUT/{checkout,configure,make,install,error,makepkg,patch}-$PRGNAM.log
-                          # remove old log files
 
 # Source file availability:
 if ! [ -f ${SOURCE} ]; then
@@ -224,25 +199,14 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 # Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
-if [ -f $SRCDIR/doinst.sh ]; then
-  cat $SRCDIR/doinst.sh >> $PKG/install/doinst.sh
-elif [ -f $SRCDIR/doinst.sh.gz ]; then
-  zcat $SRCDIR/doinst.sh.gz >> $PKG/install/doinst.sh
-fi
-if [ -f $SRCDIR/slack-required ]; then
-  cat $SRCDIR/slack-required > $PKG/install/slack-required
-fi
 
 # Build the package:
 cd $PKG
-makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
+makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT
-md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz}.md5
+md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz}.md5
 cd -
 cat $PKG/install/slack-desc | grep "^${PRGNAM}" > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.txt
-if [ -f $PKG/install/slack-required ]; then
-  cat $PKG/install/slack-required > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.dep
-fi
 
 # Restore the original umask:
 umask ${_UMASK_}

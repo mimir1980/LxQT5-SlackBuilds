@@ -22,24 +22,6 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 # -----------------------------------------------------------------------------
-#
-# Slackware SlackBuild script
-# ===========================
-# By:          Thorn Inurcide
-# For:         imlib2
-# Descr:       library that does image file loading
-# URL:         enlightenment.org
-# Build needs:
-# Needs:
-# Changelog:
-# 1.4.6-1:     06/Jan/2015 by Thorn Inurcide
-#              * Initial build.
-#
-# Run 'sh imlib2.SlackBuild' to build a Slackware package.
-# The package (.t?z) and .txt file as well as build logs are created in /tmp .
-# Install the package using 'installpkg' or 'upgradepkg --install-new'.
-#
-# -----------------------------------------------------------------------------
 
 PRGNAM=imlib2
 VERSION=${VERSION:-1.4.6}
@@ -62,11 +44,6 @@ OUTPUT=${OUTPUT:-/tmp}
 # Input URL: http://sourceforge.net/projects/enlightenment/files/imlib2-src/1.4.6/imlib2-1.4.6.tar.bz2/download
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.bz2"
 SRCURL="http://sourceforge.net/projects/enlightenment/files/${PRGNAM}-src/${VERSION}/${PRGNAM}-${VERSION}.tar.bz2/download"
-
-
-##
-## --- with a little luck, you won't have to edit below this point --- ##
-##
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
@@ -123,13 +100,12 @@ _UMASK_=$(umask)
 umask 0022
 
 # Create working directories:
-mkdir -p $OUTPUT          # place for the package to be saved
-mkdir -p $TMP/tmp-$PRGNAM # location to build the source
-mkdir -p $PKG             # place for the package to be built
-rm -rf $PKG/*             # always erase old package's contents
-rm -rf $TMP/tmp-$PRGNAM/* # remove the remnants of previous build
+mkdir -p $OUTPUT          
+mkdir -p $TMP/tmp-$PRGNAM 
+mkdir -p $PKG           
+rm -rf $PKG/*             
+rm -rf $TMP/tmp-$PRGNAM/* 
 rm -rf $OUTPUT/{checkout,configure,make,install,error,makepkg,patch}-$PRGNAM.log
-                          # remove old log files
 
 # Source file availability:
 if ! [ -f ${SOURCE} ]; then
@@ -190,8 +166,6 @@ CFLAGS="$SLKCFLAGS" \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
   --localstatedir=/var \
-  --sysconfdir=/etc \
-  --mandir=/usr/man \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-static \
   --program-prefix= \
@@ -209,13 +183,6 @@ cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
-# Compress the man page(s):
-if [ -d $PKG/usr/man ]; then
-  find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
-  for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
-fi
-
-
 # Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
@@ -223,25 +190,14 @@ find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
 # Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
-if [ -f $SRCDIR/doinst.sh ]; then
-  cat $SRCDIR/doinst.sh >> $PKG/install/doinst.sh
-elif [ -f $SRCDIR/doinst.sh.gz ]; then
-  zcat $SRCDIR/doinst.sh.gz >> $PKG/install/doinst.sh
-fi
-if [ -f $SRCDIR/slack-required ]; then
-  cat $SRCDIR/slack-required > $PKG/install/slack-required
-fi
 
 # Build the package:
 cd $PKG
-makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
+makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT
-md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-tgz}.md5
+md5sum ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} > ${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz}.md5
 cd -
 cat $PKG/install/slack-desc | grep "^${PRGNAM}" > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.txt
-if [ -f $PKG/install/slack-required ]; then
-  cat $PKG/install/slack-required > $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.dep
-fi
 
 # Restore the original umask:
 umask ${_UMASK_}
