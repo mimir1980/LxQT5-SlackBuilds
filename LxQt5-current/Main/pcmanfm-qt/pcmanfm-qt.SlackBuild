@@ -24,7 +24,7 @@
 # -----------------------------------------------------------------------------
 
 PRGNAM=pcmanfm-qt
-VERSION=${VERSION:-0.8.0}
+VERSION=${VERSION:-0.9.0}
 BUILD=${BUILD:-1}
 
 NUMJOBS=${NUMJOBS:" -j1 "}
@@ -36,12 +36,10 @@ DOCS="AUTHORS COPYING README*"
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
 
-# Place to build (TMP) package (PKG) and output (OUTPUT) the program:
 TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: https://github.com/lxde/pcmanfm-qt/archive/0.8.0.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 
@@ -133,19 +131,6 @@ if [ "$P1" == "--download" ]; then
   exit 0
 fi
 
-# --- PACKAGE BUILDING ---
-
-echo "++"
-echo "|| $PRGNAM-$VERSION"
-echo "++"
-
-# Explode the package framework:
-if [ -f $SRCDIR/_$PRGNAM.tar.gz ]; then
-  cd $PKG
-  explodepkg $SRCDIR/_$PRGNAM.tar.gz
-  cd -
-fi
-
 cd $TMP/tmp-$PRGNAM
 echo "Extracting the source archive(s) for $PRGNAM..."
 if $(file ${SOURCE} | grep -qi ": 7-zip"); then
@@ -169,13 +154,11 @@ cd build-${PRGNAM}
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
-    -DUSE_QT5=ON \
     ..
   make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
   make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 cd -
 
-# Add this to the doinst.sh:
 mkdir -p $PKG/install
 cat <<EOINS >> $PKG/install/doinst.sh
 # Update the desktop database:
@@ -185,7 +168,6 @@ fi
 
 EOINS
 
-# Add documentation:
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
 cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
@@ -193,6 +175,7 @@ chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
 # Can't specify Man Directory, Well you can but it's futile to do so:
+# This may have been updated with 0.9.0 - but it works so I'll leave it
 mkdir -p $PKG/usr/man/man1
 mv -v $PKG/usr/share/man/man1/pcmanfm-qt.1 $PKG/usr/man/man1/pcmanfm-qt.1
 
@@ -205,15 +188,12 @@ if [ -d $PKG/usr/man ]; then
   for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 fi
 
-# Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
 
-# Build the package:
 cd $PKG
 makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT
