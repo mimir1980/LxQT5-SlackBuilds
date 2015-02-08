@@ -42,6 +42,7 @@ for dir in \
   Deps/qt5 \
   Deps/extra-cmake-modules \
   Deps/kwindowsystem \
+  Deps/kguiaddons \
   Deps/CppMicroServices \
   Deps/imlib2 \
   Deps/openbox \

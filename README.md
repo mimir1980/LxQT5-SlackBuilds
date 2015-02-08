@@ -27,3 +27,6 @@ from the Slackware current Mulitlib.
 01-31-2015
 Have begun to add things in preperation for the next release of
 LxQt =]
+
+2/07/2015 LxQt 0.9.0 has been released, I have added the deps for it and
+will begin upgraded my builds in master =]
