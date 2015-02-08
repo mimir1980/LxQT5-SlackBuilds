@@ -7,19 +7,20 @@ DEPS:
 001: Qt5
 002: extra-cmake-modules
 003: kwindowsystem
-004: CppMicroServices 
-005: imlib2                 
-006: openbox                
-007: libconfig              
-008: compton                                    
-009: system-tools-backends  
-010: liboobs                
-011: libstatgrab               
-012: vala      
-013: libfm-extras            
-014: menu-cache              
-015: libfm                   
-016: lxmenu-data 
+004: kguiaddons
+005: CppMicroServices 
+006: imlib2                 
+007: openbox                
+008: libconfig              
+009: compton                                    
+010: system-tools-backends  
+011: liboobs                
+012: libstatgrab               
+013: vala      
+014: libfm-extras            
+015: menu-cache              
+016: libfm                   
+017: lxmenu-data 
 
 MAIN:
             
