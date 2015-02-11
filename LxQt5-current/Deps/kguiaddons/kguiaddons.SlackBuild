@@ -40,7 +40,6 @@ TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: http://download.kde.org/stable/frameworks/5.4/kguiaddons-5.4.0.tar.xz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.xz"
 SRCURL="http://download.kde.org/stable/frameworks/5.4/${PRGNAM}-${VERSION}.tar.xz"
 
@@ -133,10 +132,6 @@ fi
 
 # --- PACKAGE BUILDING ---
 
-echo "++"
-echo "|| $PRGNAM-$VERSION"
-echo "++"
-
 cd $TMP/tmp-$PRGNAM
 echo "Extracting the source archive(s) for $PRGNAM..."
 if $(file ${SOURCE} | grep -qi ": 7-zip"); then
@@ -172,13 +167,11 @@ cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
-# Compress the man page(s):
 if [ -d $PKG/usr/man ]; then
   find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
   for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 fi
 
-# Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
