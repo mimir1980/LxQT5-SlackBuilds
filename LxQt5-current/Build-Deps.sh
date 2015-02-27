@@ -44,6 +44,7 @@ for dir in \
   Deps/kwindowsystem \
   Deps/kguiaddons \
   Deps/CppMicroServices \
+  Deps/vala \
   Deps/imlib2 \
   Deps/openbox \
   Deps/libconfig \
