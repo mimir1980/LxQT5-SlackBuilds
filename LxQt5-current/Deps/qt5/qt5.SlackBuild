@@ -50,11 +50,12 @@
 # Not using Git Version as above
 
 PRGNAM=qt5
-VERSION=${VERSION:-5.3.2}
-BUILD=${BUILD:-2}
+VERSION=${VERSION:-5.4.1}
+SHORTVER=`echo $VERSION | cut -d. -f1-2`
+BUILD=${BUILD:-1}
 TAG=${TAG:-_thorn}
 
-wget -c http://anychimirror101.mirrors.tds.net/pub/Qt/archive/qt/5.3/${VERSION}/single/qt-everywhere-opensource-src-${VERSION}.tar.xz
+wget -c http://anychimirror101.mirrors.tds.net/pub/Qt/archive/qt/${SHORTVER}/${VERSION}/single/qt-everywhere-opensource-src-${VERSION}.tar.xz
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
