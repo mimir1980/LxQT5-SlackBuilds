@@ -15,11 +15,11 @@ I got Lxqt working on Slackware-14.1
 
 You need to upgrade the following packages from current prior to installing Qt5.
 
-libxcb
-xcb-proto
-xcb-util-curser
-xcb-util-renderutil
-xcb-util-wm
+1. libxcb
+2. xcb-proto
+3. xcb-util-curser
+4. xcb-util-renderutil
+5. xcb-util-wm
 
 If you have Multilib setup like I do upgrade the libxcb package with the one
 from the Slackware current Mulitlib.

@@ -21,14 +21,10 @@
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
 
 PRGNAM=liblxqt-mount
 VERSION=${VERSION:-0.9.0}
 BUILD=${BUILD:-1}
-
-NUMJOBS=${NUMJOBS:" -j1 "}
-
 TAG=${TAG:-_thorn}
 
 DOCS="AUTHORS COPYING"
@@ -36,12 +32,10 @@ DOCS="AUTHORS COPYING"
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
 
-# Place to build (TMP) package (PKG) and output (OUTPUT) the program:
 TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: https://github.com/lxde/liblxqt-mount/archive/0.9.0.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 
@@ -156,7 +150,7 @@ cd build-${PRGNAM}
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DLIB_SUFFIX=${LIBDIRSUFFIX} \
     ..
-  make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+  make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
   make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 cd -
 

@@ -20,15 +20,10 @@
 #   ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
-#   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
 
 PRGNAM=lxqt-runner
 VERSION=${VERSION:-0.9.0}
 BUILD=${BUILD:-1}
-
-NUMJOBS=${NUMJOBS:" -j1 "}
-
 TAG=${TAG:-_thorn}
 
 DOCS="AUTHORS COPYING"
@@ -154,7 +149,7 @@ cd build-${PRGNAM}
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
     ..
-  make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+  make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
   make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 cd -
 
