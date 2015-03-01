@@ -46,11 +46,11 @@
 # This is the highly modified version qt.SlackBuild found in Slackware
 # tailored to Qt 5. Modified by Larry Hajali.
 
-# Modified for my LxQt SlackBuilds. Version 0.8.0
+# Modified for my LxQt SlackBuilds. Version 0.8.0, 0.9.0
 # Not using Git Version as above
 
 # With help from Ryan P.C. Mcquen Copyright 2015
-# Thanks
+# Thanks! 
 
 PRGNAM=qt5
 VERSION=${VERSION:-5.4.1}
