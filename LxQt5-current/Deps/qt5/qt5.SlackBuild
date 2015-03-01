@@ -49,7 +49,7 @@
 # Modified for my LxQt SlackBuilds. Version 0.8.0, 0.9.0
 # Not using Git Version as above
 
-# With help from Ryan P.C. Mcquen Copyright 2015
+# With help from Ryan P.C. McQuen Copyright 2015
 # Thanks! 
 
 PRGNAM=qt5
