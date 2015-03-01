@@ -21,7 +21,6 @@
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
 
 PRGNAM=openbox
 VERSION=${VERSION:-3.5.2}
@@ -38,7 +37,6 @@ TMP=${TMP:-/tmp/thorn}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: http://openbox.org/dist/openbox/openbox-3.5.2.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="http://openbox.org/dist/${PRGNAM}/${PRGNAM}-${VERSION}.tar.gz"
 
@@ -103,7 +101,6 @@ mkdir -p $PKG
 rm -rf $PKG/*             
 rm -rf $TMP/tmp-$PRGNAM/* 
 rm -rf $OUTPUT/{checkout,configure,make,install,error,makepkg,patch}-$PRGNAM.log
-                          # remove old log files
 
 # Source file availability:
 if ! [ -f ${SOURCE} ]; then
@@ -128,19 +125,6 @@ fi
 if [ "$P1" == "--download" ]; then
   echo "Download complete."
   exit 0
-fi
-
-# --- PACKAGE BUILDING ---
-
-echo "++"
-echo "|| $PRGNAM-$VERSION"
-echo "++"
-
-# Explode the package framework:
-if [ -f $SRCDIR/_$PRGNAM.tar.gz ]; then
-  cd $PKG
-  explodepkg $SRCDIR/_$PRGNAM.tar.gz
-  cd -
 fi
 
 cd $TMP/tmp-$PRGNAM
@@ -169,15 +153,12 @@ CFLAGS="$SLKCFLAGS" \
   --docdir=/usr/doc/$PRGNAM-$VERSION \
   --disable-static \
   --enable-startup-notification \
-  --program-prefix= \
-  --program-suffix= \
-  --build=$TARGET \
+  --build=$ARCH-slackware-linux \
   2>&1 | tee $OUTPUT/configure-${PRGNAM}.log
 
-make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
 make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 
-# Add this to the doinst.sh:
 mkdir -p $PKG/install
 cat <<EOINS >> $PKG/install/doinst.sh
 # Update the desktop database:
@@ -187,24 +168,20 @@ fi
 
 EOINS
 
-# Add documentation:
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
 cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
-# Compress the man page(s):
 if [ -d $PKG/usr/man ]; then
   find $PKG/usr/man -type f -name "*.?" -exec gzip -9f {} \;
   for i in $(find $PKG/usr/man -type l -name "*.?") ; do ln -s $( readlink $i ).gz $i.gz ; rm $i ; done
 fi
 
-# Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
 
@@ -212,7 +189,6 @@ cat $SRCDIR/slack-desc > $PKG/install/slack-desc
 mkdir -p $PKG/etc/X11/xinit/
 cat $SRCDIR/xinitrc.openbox > $PKG/etc/X11/xinit/xinitrc.openbox
 
-# Build the package:
 cd $PKG
 makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT

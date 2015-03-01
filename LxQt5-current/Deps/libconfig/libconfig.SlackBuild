@@ -21,14 +21,10 @@
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
 
 PRGNAM=libconfig
 VERSION=${VERSION:-1.4.9}
 BUILD=${BUILD:-1}
-
-NUMJOBS=${NUMJOBS:" -j1 "}
-
 TAG=${TAG:-_thorn}
 
 DOCS="AUTHORS ChangeLog COPYING.LIB README* TODO"
@@ -41,7 +37,6 @@ TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: http://www.hyperrealm.com/libconfig/libconfig-1.4.9.tar.gz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.gz"
 SRCURL="http://www.hyperrealm.com/${PRGNAM}/${PRGNAM}-${VERSION}.tar.gz"
 
@@ -161,7 +156,7 @@ CFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux \
   2>&1 | tee $OUTPUT/configure-${PRGNAM}.log
 
-make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
 make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

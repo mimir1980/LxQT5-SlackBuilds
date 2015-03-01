@@ -21,14 +21,10 @@
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
     
 PRGNAM=compton
 VERSION=${VERSION:-0.1_beta2}
 BUILD=${BUILD:-1}
-
-NUMJOBS=${NUMJOBS:" -j1 "}
-
 TAG=${TAG:-_thorn}
 
 DOCS="LICENSE README*"
@@ -148,7 +144,7 @@ LDFLAGS="$SLKLDFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 CFLAGS="$SLKCFLAGS" \
 
-make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
 make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 
 # Add this to the doinst.sh:

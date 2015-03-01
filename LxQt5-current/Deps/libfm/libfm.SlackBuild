@@ -21,14 +21,10 @@
 #   OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
-# -----------------------------------------------------------------------------
 
 PRGNAM=libfm
 VERSION=${VERSION:-1.2.3}
 BUILD=${BUILD:-1}
-
-NUMJOBS=${NUMJOBS:" -j1 "}
-
 TAG=${TAG:-_thorn}
 
 DOCS="AUTHORS COPYING NEWS README* TODO"
@@ -36,12 +32,10 @@ DOCS="AUTHORS COPYING NEWS README* TODO"
 # Where do we look for sources?
 SRCDIR=$(cd $(dirname $0); pwd)
 
-# Place to build (TMP) package (PKG) and output (OUTPUT) the program:
 TMP=${TMP:-/tmp/build}
 PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
-# Input URL: http://downloads.sf.net/pcmanfm/libfm-1.2.3.tar.xz
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.xz"
 SRCURL="http://downloads.sf.net/pcmanfm/${PRGNAM}-${VERSION}.tar.xz"
 
@@ -132,19 +126,6 @@ if [ "$P1" == "--download" ]; then
   exit 0
 fi
 
-# --- PACKAGE BUILDING ---
-
-echo "++"
-echo "|| $PRGNAM-$VERSION"
-echo "++"
-
-# Explode the package framework:
-if [ -f $SRCDIR/_$PRGNAM.tar.gz ]; then
-  cd $PKG
-  explodepkg $SRCDIR/_$PRGNAM.tar.gz
-  cd -
-fi
-
 cd $TMP/tmp-$PRGNAM
 echo "Extracting the source archive(s) for $PRGNAM..."
 if $(file ${SOURCE} | grep -qi ": 7-zip"); then
@@ -171,15 +152,12 @@ CFLAGS="$SLKCFLAGS" \
   --enable-gtk-doc-html=no \
   --without-gtk \
   --disable-static \
-  --program-prefix= \
-  --program-suffix= \
-  --build=$TARGET \
+  --build=$ARCH-slackware-linux \
   2>&1 | tee $OUTPUT/configure-${PRGNAM}.log
 
-make $NUMJOBS 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
+make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
 make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
 
-# Add this to the doinst.sh:
 mkdir -p $PKG/install
 cat <<EOINS >> $PKG/install/doinst.sh
 # Update the mime database:
@@ -197,22 +175,18 @@ EOINS
   cd $PKG/usr/lib$LIBDIRSUFFIX
   rm -f libfm-extra.so* pkgconfig/libfm-extra.pc libfm-extra.la )
   
-# Add documentation:
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true
 cat $SRCDIR/$(basename $0) > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 chown -R root:root $PKG/usr/doc/$PRGNAM-$VERSION
 find $PKG/usr/doc -type f -exec chmod 644 {} \;
 
-# Strip binaries (if any):
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
-# Add a package description:
 mkdir -p $PKG/install
 cat $SRCDIR/slack-desc > $PKG/install/slack-desc
 
-# Build the package:
 cd $PKG
 makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
 cd $OUTPUT
