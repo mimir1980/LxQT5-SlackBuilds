@@ -49,6 +49,9 @@
 # Modified for my LxQt SlackBuilds. Version 0.8.0
 # Not using Git Version as above
 
+# With help from Ryan P.C. Mcquen Copyright 2015
+# Thanks
+
 PRGNAM=qt5
 VERSION=${VERSION:-5.4.1}
 SHORTVER=`echo $VERSION | cut -d. -f1-2`
