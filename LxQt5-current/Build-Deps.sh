@@ -70,7 +70,7 @@ for dir in \
   build=$(cat ${package}.SlackBuild | grep "BUILD:" | cut -d "-" -f2 | rev | cut -c 2- | rev)
 
   # Check for duplicate sources
-  sourcefile="$(ls -l $MSBROOT/$dir/${package}-*.tar.?z* | wc -l)"
+  sourcefile="$(ls --color=never -l $MSBROOT/$dir/${package}-*.tar.?z* | wc -l)"
   if [ $sourcefile -gt 1 ]; then
     echo "You have following duplicate sources:"
     ls $MSBROOT/$dir/${package}-*.tar.?z* | cut -d " " -f1
@@ -81,7 +81,7 @@ for dir in \
   # The real build starts here
   sh ${package}.SlackBuild || exit 1
   if [ "$INST" = "1" ]; then
-    PACKAGE=`ls $TMP/${package}-${version}-*-${build}*.t?z`
+    PACKAGE=`ls --color=never $TMP/${package}-${version}-*-${build}*.txz`
     if [ -f "$PACKAGE" ]; then
       upgradepkg --install-new --reinstall "$PACKAGE"
     else
