@@ -74,7 +74,7 @@ for dir in \
   # The real build starts here
   sh ${package}.SlackBuild || exit 1
   if [ "$INST" = "1" ]; then
-    PACKAGE=`ls $TMP/${package}-${version}-*-${build}*.t?z`
+    PACKAGE=`ls --color=never $TMP/${package}-${version}-*-${build}*.txz`
     if [ -f "$PACKAGE" ]; then
       upgradepkg --install-new --reinstall "$PACKAGE"
     else
