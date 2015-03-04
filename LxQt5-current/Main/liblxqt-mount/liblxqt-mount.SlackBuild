@@ -41,7 +41,7 @@ SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
-  . $SRCDIR/machine.conf ]
+  . $SRCDIR/machine.conf 
 elif [ -e /etc/slackbuild/machine.conf ]; then
   . /etc/slackbuild/machine.conf ]
 else
