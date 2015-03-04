@@ -43,7 +43,7 @@ SRCURL="https://github.com/lxde/${PRGNAM}/archive/${VERSION}.tar.gz"
 if [ -e $SRCDIR/machine.conf ]; then
   . $SRCDIR/machine.conf 
 elif [ -e /etc/slackbuild/machine.conf ]; then
-  . /etc/slackbuild/machine.conf ]
+  . /etc/slackbuild/machine.conf 
 else
   # Automatically determine the architecture we're building on:
   MARCH=$( uname -m )
