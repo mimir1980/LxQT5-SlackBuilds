@@ -180,7 +180,14 @@ cat $SRCDIR/slack-desc > $PKG/install/slack-desc
 
 # Add xinitrc:
 mkdir -p $PKG/etc/X11/xinit
-cat $SRCDIR/xinitrc.lxqt > $PKG/etc/X11/xinit/xinitrc.lxqt
+install -m0755 $SRCDIR/xinitrc.lxqt $PKG/etc/X11/xinit/xinitrc.lxqt
+
+# Replace the default .desktop file with one that loads the Slackware resources calling 
+# from our xinitrc instead of just launching startlxqt When starting from a session manager like GDM.
+# Which isn't allowing the user to move items to the trash or click a file system icon in pcmanfm-qt to explore it.
+# This is an open Issue on github as of 3/19/2015. 
+mv -v $PKG/usr/share/xsessions/lxqt.desktop $PKG/usr/share/xsessions/lxqt.desktop.orig
+cat $SRCDIR/lxqt.desktop > $PKG/usr/share/xsessions/lxqt.desktop
 
 cd $PKG
 makepkg --linkadd y --chown n $OUTPUT/${PRGNAM}-${VERSION}-${ARCH}-${BUILD}${TAG}.${PKGTYPE:-txz} 2>&1 | tee $OUTPUT/makepkg-${PRGNAM}.log
