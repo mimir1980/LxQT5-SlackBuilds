@@ -148,7 +148,6 @@ cd build-${PRGNAM}
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
-    -DUSE_QT5=ON \
     ..
   make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
   make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
