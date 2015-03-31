@@ -23,7 +23,7 @@
 #   SUCH DAMAGE.
 
 PRGNAM=kwindowsystem
-VERSION=${VERSION:-5.4.0}
+VERSION=${VERSION:-5.8.0}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_thorn}
 
@@ -37,7 +37,7 @@ PKG=$TMP/package-$PRGNAM
 OUTPUT=${OUTPUT:-/tmp}
 
 SOURCE="$SRCDIR/${PRGNAM}-${VERSION}.tar.xz"
-SRCURL="http://download.kde.org/stable/frameworks/5.4/${PRGNAM}-${VERSION}.tar.xz"
+SRCURL="http://download.kde.org/stable/frameworks/5.8/${PRGNAM}-${VERSION}.tar.xz"
 
 # You can use your own private machine.conf file to overrule machine defaults:
 if [ -e $SRCDIR/machine.conf ]; then
