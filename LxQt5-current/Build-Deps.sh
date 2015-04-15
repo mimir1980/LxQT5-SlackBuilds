@@ -44,6 +44,8 @@ for dir in \
   Deps/kwindowsystem \
   Deps/kguiaddons \
   Deps/CppMicroServices \
+  Deps/solid \
+  Deps/libdbusmenu-qt5 \
   Deps/vala \
   Deps/imlib2 \
   Deps/openbox \
