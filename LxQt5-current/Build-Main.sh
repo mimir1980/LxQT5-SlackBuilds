@@ -41,7 +41,6 @@ ROOT=$(pwd)
 for dir in \
   Main/libqtxdg \
   Main/liblxqt \
-  Main/liblxqt-mount \
   Main/libsysstat \
   Main/lxqt-session \
   Main/lxqt-qtplugin \
