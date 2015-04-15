@@ -144,8 +144,8 @@ LDFLAGS="$SLKLDFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 CFLAGS="$SLKCFLAGS" \
 
-make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
-make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
+make || exit 1
+make DESTDIR=$PKG install 
 
 # Add this to the doinst.sh:
 mkdir -p $PKG/install

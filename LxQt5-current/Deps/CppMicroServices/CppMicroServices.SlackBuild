@@ -151,8 +151,8 @@ cd build-${PRGNAM}
     -DCMAKE_INSTALL_PREFIX=/usr \
     -US_BUILD_SHARED_LIBS \
     ..
-  make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
-  make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
+  make || exit 1
+  make DESTDIR=$PKG install 
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

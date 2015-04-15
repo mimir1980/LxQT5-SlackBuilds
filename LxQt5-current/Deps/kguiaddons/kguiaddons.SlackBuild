@@ -151,8 +151,8 @@ cd build-${PRGNAM}
     -DMAN_INSTALL_DIR=/usr/man \
     -DSYSCONF_INSTALL_DIR=/etc \
     ..
-  make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
-  make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
+  make || exit 1
+  make DESTDIR=$PKG install 
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

@@ -153,8 +153,8 @@ CFLAGS="$SLKCFLAGS" \
   --build=$ARCH-slackware-linux \
   2>&1 | tee $OUTPUT/configure-${PRGNAM}.log
 
-make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
-make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
+make || exit 1
+make DESTDIR=$PKG install 
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a $DOCS $PKG/usr/doc/$PRGNAM-$VERSION || true

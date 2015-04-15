@@ -22,6 +22,8 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 
+# Note to self: -DUSE_QT5 not needed in next release
+
 PRGNAM=libqtxdg
 VERSION=${VERSION:-1.2.0}
 BUILD=${BUILD:-1}
@@ -150,8 +152,8 @@ cd build-${PRGNAM}
     -DCMAKE_BUILD_TYPE=Release \
     -DUSE_QT5=ON \
     ..
-  make 2>&1 | tee $OUTPUT/make-${PRGNAM}.log
-  make DESTDIR=$PKG install 2>&1 | tee $OUTPUT/install-${PRGNAM}.log
+  make || exit 1
+  make DESTDIR=$PKG install 
 cd -
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION

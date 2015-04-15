@@ -22,6 +22,8 @@
 #   OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
 #   SUCH DAMAGE.
 
+# Note to self: custom .desktop file not needed in next release
+
 PRGNAM=lxqt-common
 VERSION=${VERSION:-0.9.1}
 BUILD=${BUILD:-1}
@@ -149,7 +151,7 @@ cd build
     -DCMAKE_INSTALL_PREFIX=/usr \
     -DCMAKE_BUILD_TYPE=Release \
     ..
-    make 
+    make || exit 1
     make install DESTDIR=$PKG
  cd ..
 
