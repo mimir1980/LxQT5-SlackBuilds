@@ -148,6 +148,7 @@ cd build-${PRGNAM}
     -DCMAKE_CXX_FLAGS_RELEASE:STRING="$SLKCFLAGS" \
     -DCMAKE_BUILD_TYPE=Release \
     -DCMAKE_INSTALL_PREFIX=/usr \
+    -DVOLUME_USE_PULSEAUDIO=No \
     ..
   make || exit 1
   make DESTDIR=$PKG install 
